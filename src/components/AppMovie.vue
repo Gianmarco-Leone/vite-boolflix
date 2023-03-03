@@ -6,17 +6,36 @@ export default {
     language: String,
     vote: String,
   },
+  computed: {
+    toUpperCaseLanguage() {
+      return this.language.toUpperCase();
+    },
+  },
 };
 </script>
 
 <template>
   <li>
     <span> TITLE: {{ title }} </span>
-    <br />
+    <hr />
     <span> ORIGINAL TITLE: {{ originalTitle }} </span>
-    <br />
-    <span> LANGUAGE: {{ language }} </span>
-    <br />
+    <hr />
+    <span> LANGUAGE: ({{ language }})</span>
+    <!-- SE LA BANDIERA NON E' QUELLA INGLESE -->
+    <div v-if="language != 'en'">
+      <img
+        :src="`https://www.countryflagicons.com/FLAT/64/${toUpperCaseLanguage}.png`"
+        :alt="`${language} flag`"
+      />
+    </div>
+    <!-- SE LA BANDIERA E' QUELLA INGLESE -->
+    <div v-else-if="(language = 'en')">
+      <img
+        src="https://www.countryflagicons.com/FLAT/64/GB.png"
+        :alt="`${language} flag`"
+      />
+    </div>
+    <hr />
     <span> VOTE: {{ vote }} </span>
   </li>
 </template>
@@ -26,5 +45,6 @@ export default {
 li {
   width: 300px;
   border: 1px solid black;
+  margin: 1rem;
 }
 </style>
