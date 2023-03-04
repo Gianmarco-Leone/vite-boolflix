@@ -1,5 +1,10 @@
 <script>
 export default {
+  data() {
+    return {
+      stars: [],
+    };
+  },
   props: {
     title: String,
     originalTitle: String,
@@ -10,6 +15,21 @@ export default {
   computed: {
     toUpperCaseLanguage() {
       return this.language.toUpperCase();
+    },
+    halfNumber() {
+      return Math.ceil(this.vote / 2);
+    },
+    getStars() {
+      // Aggiungo stelle piene
+      for (let i = this.halfNumber; i >= 1; i--) {
+        this.stars.push("fa-solid fa-star");
+      }
+
+      // Aggiungo stelle vuote
+      for (let i = 5 - this.halfNumber; i >= 1; i--) {
+        this.stars.push("fa-regular fa-star");
+      }
+      return this.stars;
     },
   },
 };
@@ -38,7 +58,10 @@ export default {
       />
     </div>
     <hr />
-    <span> VOTE: {{ vote }} </span>
+    <span> VOTE: {{ halfNumber }} </span>
+    <span v-for="star in getStars">
+      <font-awesome-icon :icon="star" />
+    </span>
   </li>
 </template>
 
