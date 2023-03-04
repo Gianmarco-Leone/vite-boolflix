@@ -5,6 +5,7 @@ export default {
     originalTitle: String,
     language: String,
     vote: String,
+    pic: String,
   },
   computed: {
     toUpperCaseLanguage() {
@@ -16,6 +17,7 @@ export default {
 
 <template>
   <li>
+    <img :src="`http://image.tmdb.org/t/p/w300${pic}`" />
     <span> TITLE: {{ title }} </span>
     <hr />
     <span> ORIGINAL TITLE: {{ originalTitle }} </span>

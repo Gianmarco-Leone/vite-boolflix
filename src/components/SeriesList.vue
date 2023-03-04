@@ -26,6 +26,7 @@ export default {
       :originalName="serie.original_name"
       :language="serie.original_language"
       :vote="serie.vote_average"
+      :pic="serie.poster_path"
     />
   </ul>
 </template>
