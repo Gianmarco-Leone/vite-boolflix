@@ -2,7 +2,7 @@
 // -STATE- Importo file reattivo store.js
 import { store } from "../data/store.js";
 
-import AppMovie from "./AppMovie.vue";
+import AppSerie from "./AppSerie.vue";
 
 export default {
   data() {
@@ -10,23 +10,22 @@ export default {
       store,
     };
   },
-
   components: {
-    AppMovie,
+    AppSerie,
   },
 };
 </script>
 
 <template>
-  <h1>Film:</h1>
+  <h1>Serie:</h1>
   <ul>
-    <AppMovie
-      v-for="movie in store.movies"
-      :key="movie.id"
-      :title="movie.title"
-      :originalTitle="movie.original_title"
-      :language="movie.original_language"
-      :vote="movie.vote_average"
+    <AppSerie
+      v-for="serie in store.series"
+      :key="serie.id"
+      :name="serie.name"
+      :originalName="serie.original_name"
+      :language="serie.original_language"
+      :vote="serie.vote_average"
     />
   </ul>
 </template>

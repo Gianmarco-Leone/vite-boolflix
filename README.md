@@ -19,3 +19,8 @@ Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori pe
 2. Titolo Originale
 3. Lingua
 4. Voto
+
+## Milestone 2:
+
+- Trasformiamo la stringa statica della lingua in una vera e propria bandiera della nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della nazione ritornata dall’API.
+- Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca dovremo prendere sia i film che corrispondono alla query, sia le serie tv.

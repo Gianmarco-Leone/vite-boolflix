@@ -7,6 +7,7 @@ import { store } from "./data/store.js";
 
 import AppHeader from "./components/AppHeader.vue";
 import MoviesList from "./components/MoviesList.vue";
+import SeriesList from "./components/SeriesList.vue";
 
 export default {
   data() {
@@ -14,21 +15,31 @@ export default {
       store,
       moviesEndpoint:
         "https://api.themoviedb.org/3/search/movie?api_key=9e6d26513f128e25f1d7dea31384230a&language=it-IT",
+      seriesEndpoint:
+        "https://api.themoviedb.org/3/search/tv?api_key=9e6d26513f128e25f1d7dea31384230a&language=it-IT",
     };
   },
   components: {
     AppHeader,
     MoviesList,
+    SeriesList,
   },
   methods: {
-    fetchFilms(url) {
+    fetchMoviesResult(url) {
       axios.get(url).then((response) => {
         store.movies = response.data.results;
       });
     },
 
-    fetchFilteredMovies(term) {
-      this.fetchFilms(`${this.moviesEndpoint}&query=${term}`);
+    fetchSeriesResult(url) {
+      axios.get(url).then((response) => {
+        store.series = response.data.results;
+      });
+    },
+
+    fetchFiltered(term) {
+      this.fetchMoviesResult(`${this.moviesEndpoint}&query=${term}`);
+      this.fetchSeriesResult(`${this.seriesEndpoint}&query=${term}`);
     },
   },
 };
@@ -36,14 +47,13 @@ export default {
 
 <template>
   <!-- HEADER -->
-  <AppHeader @on-search="fetchFilteredMovies" />
+  <AppHeader @on-search="fetchFiltered" />
 
   <!-- MAIN -->
   <MoviesList />
+  <SeriesList />
 </template>
 
 <style lang="scss">
 @use "./assets/scss/style.scss";
 </style>
-
-<!-- `${this.moviesEndpoint}api_key=${this.api_key}&query=ritorno+al+futuro` -->
