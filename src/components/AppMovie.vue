@@ -100,7 +100,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-// debug
 li {
   width: 300px;
 

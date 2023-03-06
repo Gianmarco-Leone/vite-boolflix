@@ -11,6 +11,7 @@ export default {
     language: String,
     vote: String,
     pic: String,
+    overview: String,
   },
   computed: {
     toUpperCaseLanguage() {
@@ -36,40 +37,125 @@ export default {
 </script>
 
 <template>
-  <li>
-    <img :src="`http://image.tmdb.org/t/p/w300${pic}`" />
-    <span> TITLE: {{ name }} </span>
-    <hr />
-    <span> ORIGINAL TITLE: {{ originalName }} </span>
-    <hr />
-    <span> LANGUAGE: ({{ language }})</span>
-    <!-- SE LA BANDIERA NON E' QUELLA INGLESE -->
-    <div v-if="language != 'en'">
-      <img
-        :src="`https://www.countryflagicons.com/FLAT/64/${toUpperCaseLanguage}.png`"
-        :alt="`${language} flag`"
-      />
+  <li class="ms-0">
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <img
+            :src="`http://image.tmdb.org/t/p/w300${pic}`"
+            class="poster-img"
+          />
+        </div>
+
+        <div class="flip-box-back">
+          <!-- TITLE -->
+          <div>
+            <span class="fw-semibold">TITLE: </span>
+            <span class="fw-light">{{ name }}</span>
+          </div>
+
+          <!-- ORIGINAL TITLE -->
+          <div class="my-2">
+            <span class="fw-semibold">ORIGINAL TITLE: </span>
+            <span class="fw-light"> {{ originalName }} </span>
+          </div>
+
+          <!-- LANGUAGE -->
+          <div class="my-2 text-center">
+            <span class="fw-semibold">LANGUAGE: ({{ language }})</span>
+
+            <!-- SE LA BANDIERA NON E' QUELLA INGLESE -->
+            <div v-if="language != 'en'">
+              <img
+                :src="`https://www.countryflagicons.com/FLAT/64/${toUpperCaseLanguage}.png`"
+                :alt="`${language} flag`"
+              />
+            </div>
+
+            <!-- SE LA BANDIERA E' QUELLA INGLESE -->
+            <div v-else-if="(language = 'en')">
+              <img
+                src="https://www.countryflagicons.com/FLAT/64/GB.png"
+                :alt="`${language} flag`"
+              />
+            </div>
+          </div>
+
+          <!-- VOTE -->
+          <div class="my-2 text-center">
+            <span class="fw-semibold d-block">VOTE: </span>
+            <span v-for="star in getStars" class="star">
+              <font-awesome-icon :icon="star" />
+            </span>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div class="my-2 overview-text">
+            <span class="fw-semibold d-block">OVERVIEW: </span>
+            <span class="fw-light"> {{ overview }} </span>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- SE LA BANDIERA E' QUELLA INGLESE -->
-    <div v-else-if="(language = 'en')">
-      <img
-        src="https://www.countryflagicons.com/FLAT/64/GB.png"
-        :alt="`${language} flag`"
-      />
-    </div>
-    <hr />
-    <span> VOTE: {{ halfNumber }} </span>
-    <span v-for="star in getStars">
-      <font-awesome-icon :icon="star" />
-    </span>
   </li>
 </template>
 
 <style lang="scss" scoped>
-// debug
 li {
   width: 300px;
-  border: 1px solid black;
-  margin: 1rem;
+
+  .flip-box {
+    background-color: transparent;
+    width: 300px;
+    height: 450px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+
+      .flip-box-front,
+      .flip-box-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden; /* Safari */
+
+        .poster-img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .flip-box-back {
+        background-color: #111;
+        color: white;
+        transform: rotateY(180deg);
+
+        .fw-light {
+          color: #bbb;
+        }
+
+        .star {
+          color: yellow;
+        }
+
+        .overview-text {
+          max-height: 8rem;
+          overflow-y: auto;
+          text-align: center;
+        }
+      }
+    }
+
+    &:hover .flip-box-inner {
+      transform: rotateY(-180deg);
+    }
+  }
 }
 </style>

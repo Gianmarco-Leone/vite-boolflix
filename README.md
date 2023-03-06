@@ -10,6 +10,8 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 > Replica sito Netflix
 
+![Screenshot](./src/assets/Screenshot_1.png)
+
 ## Milestone 1:
 
 Creare un layout base con una searchbar (una input e un button) in cui possiamo scrivere completamente o parzialmente il nome di un film. Possiamo, cliccando il bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
@@ -29,3 +31,11 @@ Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori pe
 
 - Aggiungiamo la copertina del film o della serie all'elenco.
 - Trasformiamo poi il voto da 1 a 10 decimale in un numero intero da 1 a 5, per poi stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote(senza gestire mezze icone, ma arrotondando sempre per eccesso all'unità successiva).
+
+## Milestone 4:
+
+Trasformo quello fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
+
+- Un header che contiene logo e search bar
+- Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina
+- Andando con il mouse sopra una card (on hover), avviene effetto flip 3D della card e sul retro appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview

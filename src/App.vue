@@ -47,7 +47,9 @@ export default {
 
 <template>
   <!-- HEADER -->
-  <AppHeader @on-search="fetchFiltered" />
+  <header>
+    <AppHeader @on-search="fetchFiltered" />
+  </header>
 
   <!-- MAIN -->
   <main>
@@ -59,7 +61,12 @@ export default {
 <style lang="scss">
 @use "./assets/scss/style.scss";
 
+header {
+  height: 80px;
+}
+
 main {
   background-color: #555;
+  min-height: calc(100vh - 80px);
 }
 </style>

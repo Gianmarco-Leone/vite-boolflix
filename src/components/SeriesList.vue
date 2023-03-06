@@ -17,23 +17,28 @@ export default {
 </script>
 
 <template>
-  <h1>Serie:</h1>
-  <ul>
-    <AppSerie
-      v-for="serie in store.series"
-      :key="serie.id"
-      :name="serie.name"
-      :originalName="serie.original_name"
-      :language="serie.original_language"
-      :vote="serie.vote_average"
-      :pic="serie.poster_path"
-    />
-  </ul>
+  <div class="my-container p-4">
+    <h1 class="text-white mb-5">SERIE:</h1>
+    <ul>
+      <AppSerie
+        v-for="serie in store.series"
+        :key="serie.id"
+        :name="serie.name"
+        :originalName="serie.original_name"
+        :language="serie.original_language"
+        :vote="serie.vote_average"
+        :pic="serie.poster_path"
+        :overview="serie.overview"
+      />
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 ul {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 4rem;
+  gap: 1rem;
 }
 </style>

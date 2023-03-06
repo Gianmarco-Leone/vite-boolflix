@@ -39,8 +39,7 @@ export default {
 ul {
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
-  justify-content: center;
+  padding-left: 4rem;
   gap: 1rem;
 }
 </style>
