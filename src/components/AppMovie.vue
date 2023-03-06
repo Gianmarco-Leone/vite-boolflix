@@ -44,10 +44,17 @@ export default {
       <div class="flip-box-inner">
         <!-- PARTE FRONTALE CARD -->
         <div class="flip-box-front">
+          <!-- SE viene trovata l'immagine dall'API -->
           <img
-            :src="`http://image.tmdb.org/t/p/w300${pic}`"
+            v-if="pic"
+            :src="`https://image.tmdb.org/t/p/w342${pic}`"
             class="poster-img"
           />
+
+          <!-- ALTRIMENTI -->
+          <div class="img-not-found" v-else>
+            {{ title }}
+          </div>
         </div>
 
         <!-- PARTE POSTERIORE CARD -->
@@ -133,6 +140,18 @@ li {
         .poster-img {
           width: 100%;
           height: 100%;
+        }
+
+        .img-not-found {
+          background-color: rgba(20, 20, 20, 0.7);
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          font-size: 2rem;
+          font-weight: bold;
         }
       }
 
