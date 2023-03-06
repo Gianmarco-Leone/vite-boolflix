@@ -15,14 +15,32 @@ export default {
 </script>
 
 <template>
-  <form action="">
-    <input
-      v-model="term"
-      type="text"
-      placeholder="Inserisci nome film/serie ..."
-    />
-    <button @click="search()" type="button">Cerca</button>
-  </form>
+  <nav class="navbar bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-danger fw-semibold fs-3" href="#">
+        BOOLFLIX
+      </a>
+      <form class="d-flex" role="search">
+        <input
+          v-model="term"
+          class="form-control me-2"
+          type="search"
+          placeholder="Inserisci nome film/serie ..."
+          aria-label="Search"
+        />
+        <button @click="search()" type="button" class="btn my-btn">
+          Cerca
+        </button>
+      </form>
+    </div>
+  </nav>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+nav {
+  .my-btn {
+    color: #fff;
+    border-color: #fff;
+  }
+}
+</style>
