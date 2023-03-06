@@ -38,14 +38,19 @@ export default {
 
 <template>
   <li class="ms-0">
+    <!-- CARD -->
     <div class="flip-box">
+      <!-- CONTENUTO CARD -->
       <div class="flip-box-inner">
+        <!-- PARTE FRONTALE CARD -->
         <div class="flip-box-front">
           <img
             :src="`http://image.tmdb.org/t/p/w300${pic}`"
             class="poster-img"
           />
         </div>
+
+        <!-- PARTE POSTERIORE CARD -->
         <div class="flip-box-back">
           <!-- TITLE -->
           <div>
@@ -53,8 +58,8 @@ export default {
             <span class="fw-light">{{ title }}</span>
           </div>
 
-          <!-- ORIGINAL TITLE -->
-          <div class="my-2">
+          <!-- ORIGINAL TITLE, SE diverso dal titolo -->
+          <div v-if="text != originalText" class="my-2">
             <span class="fw-semibold">ORIGINAL TITLE: </span>
             <span class="fw-light"> {{ originalTitle }} </span>
           </div>
@@ -63,7 +68,7 @@ export default {
           <div class="my-2 text-center">
             <span class="fw-semibold">LANGUAGE: ({{ language }})</span>
 
-            <!-- SE LA BANDIERA NON E' QUELLA INGLESE -->
+            <!-- SE la bandiera non è quella inglese -->
             <div v-if="language != 'en'">
               <img
                 :src="`https://www.countryflagicons.com/FLAT/64/${toUpperCaseLanguage}.png`"
@@ -71,7 +76,7 @@ export default {
               />
             </div>
 
-            <!-- SE LA BANDIERA E' QUELLA INGLESE -->
+            <!-- SE la bandiera è quella inglese -->
             <div v-else-if="(language = 'en')">
               <img
                 src="https://www.countryflagicons.com/FLAT/64/GB.png"
@@ -91,7 +96,7 @@ export default {
           <!-- OVERVIEW -->
           <div class="my-2 overview-text">
             <span class="fw-semibold d-block">OVERVIEW: </span>
-            <span class="fw-light"> {{ overview }} </span>
+            <p class="fw-light">{{ overview }}</p>
           </div>
         </div>
       </div>

@@ -17,9 +17,12 @@ export default {
 <template>
   <nav class="navbar bg-dark">
     <div class="container-fluid">
+      <!-- LOGO  -->
       <a class="navbar-brand text-danger fw-semibold fs-1" href="#">
         BOOLFLIX
       </a>
+
+      <!-- CAMPO RICERCA -->
       <form class="d-flex" role="search">
         <input
           v-model="term"

@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div class="my-container p-4">
-    <h1 class="text-white mb-5">SERIE:</h1>
+    <h1 class="text-white mb-5">SERIE TV:</h1>
     <ul>
       <AppSerie
         v-for="serie in store.series"
