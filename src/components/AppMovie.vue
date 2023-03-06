@@ -9,7 +9,7 @@ export default {
     title: String,
     originalTitle: String,
     language: String,
-    vote: String,
+    vote: Number,
     pic: String,
     overview: String,
   },
@@ -59,7 +59,7 @@ export default {
           </div>
 
           <!-- ORIGINAL TITLE, SE diverso dal titolo -->
-          <div v-if="text != originalText" class="my-2">
+          <div v-if="title != originalTitle" class="my-2">
             <span class="fw-semibold">ORIGINAL TITLE: </span>
             <span class="fw-light"> {{ originalTitle }} </span>
           </div>

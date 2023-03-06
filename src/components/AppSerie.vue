@@ -9,7 +9,7 @@ export default {
     name: String,
     originalName: String,
     language: String,
-    vote: String,
+    vote: Number,
     pic: String,
     overview: String,
   },
