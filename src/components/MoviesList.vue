@@ -18,23 +18,29 @@ export default {
 </script>
 
 <template>
-  <h1>Film:</h1>
-  <ul>
-    <AppMovie
-      v-for="movie in store.movies"
-      :key="movie.id"
-      :title="movie.title"
-      :originalTitle="movie.original_title"
-      :language="movie.original_language"
-      :vote="movie.vote_average"
-      :pic="movie.poster_path"
-    />
-  </ul>
+  <div class="my-container p-4">
+    <h1 class="text-white mb-5">FILM:</h1>
+    <ul>
+      <AppMovie
+        v-for="movie in store.movies"
+        :key="movie.id"
+        :title="movie.title"
+        :originalTitle="movie.original_title"
+        :language="movie.original_language"
+        :vote="movie.vote_average"
+        :pic="movie.poster_path"
+        :overview="movie.overview"
+      />
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 ul {
   display: flex;
   flex-wrap: wrap;
+  padding: 0;
+  justify-content: center;
+  gap: 1rem;
 }
 </style>

@@ -50,10 +50,16 @@ export default {
   <AppHeader @on-search="fetchFiltered" />
 
   <!-- MAIN -->
-  <MoviesList />
-  <SeriesList />
+  <main>
+    <MoviesList />
+    <SeriesList />
+  </main>
 </template>
 
 <style lang="scss">
 @use "./assets/scss/style.scss";
+
+main {
+  background-color: #555;
+}
 </style>

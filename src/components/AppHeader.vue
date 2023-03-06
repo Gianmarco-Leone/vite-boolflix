@@ -17,7 +17,7 @@ export default {
 <template>
   <nav class="navbar bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-danger fw-semibold fs-3" href="#">
+      <a class="navbar-brand text-danger fw-semibold fs-1" href="#">
         BOOLFLIX
       </a>
       <form class="d-flex" role="search">
