@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <div class="my-container p-4">
+  <div v-if="store.movies.length" class="my-container p-4">
     <h1 class="text-white mb-5">FILM:</h1>
     <ul>
       <AppMovie

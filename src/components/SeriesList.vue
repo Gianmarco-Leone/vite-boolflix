@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <div class="my-container p-4">
+  <div v-if="store.series.length" class="my-container p-4">
     <h1 class="text-white mb-5">SERIE TV:</h1>
     <ul>
       <AppSerie
