@@ -6,8 +6,7 @@ import axios from "axios";
 import { store } from "./data/store.js";
 
 import AppHeader from "./components/AppHeader.vue";
-import MoviesList from "./components/MoviesList.vue";
-import SeriesList from "./components/SeriesList.vue";
+import AppMain from "./components/AppMain.vue";
 
 export default {
   data() {
@@ -21,8 +20,7 @@ export default {
   },
   components: {
     AppHeader,
-    MoviesList,
-    SeriesList,
+    AppMain,
   },
   methods: {
     fetchMoviesResult(url) {
@@ -47,26 +45,12 @@ export default {
 
 <template>
   <!-- HEADER -->
-  <header>
-    <AppHeader @on-search="fetchFiltered" />
-  </header>
+  <AppHeader @on-search="fetchFiltered" />
 
   <!-- MAIN -->
-  <main>
-    <MoviesList />
-    <SeriesList />
-  </main>
+  <AppMain />
 </template>
 
 <style lang="scss">
 @use "./assets/scss/style.scss";
-
-header {
-  height: 80px;
-}
-
-main {
-  background-color: #555;
-  min-height: calc(100vh - 80px);
-}
 </style>

@@ -127,6 +127,7 @@ li {
       height: 100%;
       transition: transform 0.8s;
       transform-style: preserve-3d;
+      cursor: pointer;
 
       .flip-box-front,
       .flip-box-back {
