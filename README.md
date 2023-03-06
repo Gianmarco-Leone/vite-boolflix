@@ -12,6 +12,15 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 ![Screenshot](./src/assets/Screenshot_1.png)
 
+## TECNOLOGIE E LIBRERIE:
+
+- Html
+- Css / Scss
+- Bootstrap
+- Vue 3
+- Vite
+- Axios (API The Movie DB)
+
 ## Milestone 1:
 
 Creare un layout base con una searchbar (una input e un button) in cui possiamo scrivere completamente o parzialmente il nome di un film. Possiamo, cliccando il bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.

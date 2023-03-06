@@ -119,7 +119,6 @@ li {
     background-color: transparent;
     width: 300px;
     height: 450px;
-    border: 1px solid #f1f1f1;
     perspective: 1000px;
 
     .flip-box-inner {

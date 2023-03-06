@@ -19,7 +19,7 @@ export default {
 
 <template>
   <div v-if="store.movies.length" class="my-container p-4">
-    <h1 class="text-white mb-5">FILM:</h1>
+    <h1 class="text-white mb-5">FILM</h1>
     <ul>
       <AppMovie
         v-for="movie in store.movies"
