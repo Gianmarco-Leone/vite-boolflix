@@ -58,8 +58,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../assets/scss/partials/variables" as *;
 main {
-  background-color: #212529;
+  background-color: $dark-color;
   min-height: calc(100vh - 100px);
   padding-top: 3rem;
 

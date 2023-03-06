@@ -24,13 +24,14 @@ export default {
         </a>
 
         <!-- CAMPO RICERCA -->
-        <form class="d-flex" role="search">
+        <form @submit.prevent="search" class="d-flex" role="search">
           <input
             v-model="term"
             class="form-control me-2"
             type="search"
             placeholder="Inserisci nome film/serie ..."
             aria-label="Search"
+            @keyup.enter="search"
           />
           <button @click="search()" type="button" class="btn my-btn">
             Cerca
@@ -42,15 +43,28 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../assets/scss/partials/variables" as *;
 header {
   height: 100px;
   border-bottom: 1px solid #fefefe;
 
   nav {
     height: 100%;
-    .my-btn {
-      color: #fff;
-      border-color: #fff;
+
+    form {
+      input {
+        width: 300px;
+      }
+      .my-btn {
+        color: #fff;
+        border-color: currentColor;
+
+        &:hover {
+          color: $dark-color;
+          border-color: currentColor;
+          background-color: #fff;
+        }
+      }
     }
   }
 }
