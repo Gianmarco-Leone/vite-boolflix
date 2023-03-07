@@ -2,8 +2,7 @@
 // -STATE- Importo file reattivo store.js
 import { store } from "../data/store.js";
 
-import AppMovie from "./AppMovie.vue";
-import AppSerie from "./AppSerie.vue";
+import AppCard from "./AppCard.vue";
 
 export default {
   data() {
@@ -13,8 +12,7 @@ export default {
   },
 
   components: {
-    AppMovie,
-    AppSerie,
+    AppCard,
   },
 };
 </script>
@@ -25,7 +23,7 @@ export default {
     <div v-if="store.movies.length" class="my-container p-4">
       <h1 class="text-white mb-5">FILM</h1>
       <ul>
-        <AppMovie
+        <AppCard
           v-for="movie in store.movies"
           :key="movie.id"
           :title="movie.title"
@@ -42,11 +40,11 @@ export default {
     <div v-if="store.series.length" class="my-container p-4">
       <h1 class="text-white mb-5">SERIE TV</h1>
       <ul>
-        <AppSerie
+        <AppCard
           v-for="serie in store.series"
           :key="serie.id"
-          :name="serie.name"
-          :originalName="serie.original_name"
+          :title="serie.name"
+          :originalTitle="serie.original_name"
           :language="serie.original_language"
           :vote="serie.vote_average"
           :pic="serie.poster_path"

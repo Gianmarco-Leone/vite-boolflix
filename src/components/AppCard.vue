@@ -52,7 +52,7 @@ export default {
           />
 
           <!-- ALTRIMENTI -->
-          <div class="img-not-found" v-else>
+          <div v-else class="img-not-found">
             {{ title }}
           </div>
         </div>
