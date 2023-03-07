@@ -27,10 +27,10 @@ export default {
           v-for="movie in store.movies"
           :key="movie.id"
           :title="movie.title"
-          :originalTitle="movie.original_title"
-          :language="movie.original_language"
-          :vote="movie.vote_average"
-          :pic="movie.poster_path"
+          :originalTitle="movie.originalTitle"
+          :language="movie.language"
+          :vote="movie.vote"
+          :pic="movie.pic"
           :overview="movie.overview"
         />
       </ul>
@@ -43,11 +43,11 @@ export default {
         <AppCard
           v-for="serie in store.series"
           :key="serie.id"
-          :title="serie.name"
-          :originalTitle="serie.original_name"
-          :language="serie.original_language"
-          :vote="serie.vote_average"
-          :pic="serie.poster_path"
+          :title="serie.title"
+          :originalTitle="serie.originalTitle"
+          :language="serie.language"
+          :vote="serie.vote"
+          :pic="serie.pic"
           :overview="serie.overview"
         />
       </ul>

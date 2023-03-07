@@ -25,13 +25,35 @@ export default {
   methods: {
     fetchMoviesResult(url) {
       axios.get(url).then((response) => {
-        store.movies = response.data.results;
+        // Utilizzo map per salvare solo informazioni che mi servono
+        const films = response.data.results.map((film) => {
+          return {
+            title: film.title,
+            originalTitle: film.original_title,
+            language: film.original_language,
+            vote: film.vote_average,
+            pic: film.poster_path,
+            overview: film.overview,
+          };
+        });
+        store.movies = films;
       });
     },
 
     fetchSeriesResult(url) {
       axios.get(url).then((response) => {
-        store.series = response.data.results;
+        // Utilizzo map per salvare solo informazioni che mi servono
+        const series = response.data.results.map((serie) => {
+          return {
+            title: serie.name,
+            originalTitle: serie.original_name,
+            language: serie.original_language,
+            vote: serie.vote_average,
+            pic: serie.poster_path,
+            overview: serie.overview,
+          };
+        });
+        store.series = series;
       });
     },
 
