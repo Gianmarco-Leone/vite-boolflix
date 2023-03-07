@@ -14,9 +14,6 @@ export default {
     overview: String,
   },
   computed: {
-    toUpperCaseLanguage() {
-      return this.language.toUpperCase();
-    },
     halfNumber() {
       return Math.ceil(this.vote / 2);
     },
@@ -31,6 +28,42 @@ export default {
         this.stars.push("fa-regular fa-star");
       }
       return this.stars;
+    },
+  },
+  methods: {
+    // Funzione per recuperare bandiera a seconda del codice country passato come parametro
+    getFlag(country) {
+      // Trasformo stringa in maiuscolo
+      country = country.toUpperCase();
+
+      // Gestisco i casi in cui la bandiera non viene trovata
+      // bandiera inglese
+      if (country == "EN")
+        return "https://www.countryflagicons.com/FLAT/64/GB.png";
+      // bandiera armena
+      if (country == "HY")
+        return "https://www.countryflagicons.com/FLAT/64/AM.png";
+      // bandiera giapponese
+      if (country == "JA")
+        return "https://www.countryflagicons.com/FLAT/64/JP.png";
+      // bandiera hong kong
+      if (country == "ZH")
+        return "https://www.countryflagicons.com/FLAT/64/HK.png";
+      // bandiera corea del sud
+      if (country == "KO")
+        return "https://www.countryflagicons.com/FLAT/64/KR.png";
+      // bandiera haiti
+      if (country == "HI")
+        return "https://www.countryflagicons.com/FLAT/64/HT.png";
+      // bandiera repubblica ceca
+      if (country == "CS")
+        return "https://www.countryflagicons.com/FLAT/64/CZ.png";
+      // bandiera georgia
+      if (country == "KA")
+        return "https://www.countryflagicons.com/FLAT/64/GE.png";
+
+      // Ritorno tutte le altre bandiere
+      return `https://www.countryflagicons.com/FLAT/64/${country}.png`;
     },
   },
 };
@@ -76,19 +109,8 @@ export default {
             <span class="fw-semibold">LANGUAGE: ({{ language }})</span>
 
             <!-- SE la bandiera non è quella inglese -->
-            <div v-if="language != 'en'">
-              <img
-                :src="`https://www.countryflagicons.com/FLAT/64/${toUpperCaseLanguage}.png`"
-                :alt="`${language} flag`"
-              />
-            </div>
-
-            <!-- SE la bandiera è quella inglese -->
-            <div v-else-if="(language = 'en')">
-              <img
-                src="https://www.countryflagicons.com/FLAT/64/GB.png"
-                :alt="`${language} flag`"
-              />
+            <div>
+              <img :src="getFlag(language)" :alt="`${language} flag`" />
             </div>
           </div>
 
