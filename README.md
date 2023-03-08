@@ -48,3 +48,10 @@ Trasformo quello fatto fino ad ora in una vera e propria webapp, creando un layo
 - Un header che contiene logo e search bar
 - Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina
 - Andando con il mouse sopra una card (on hover), avviene effetto flip 3D della card e sul retro appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
+
+## Milestone 5 (opzionale):
+
+Partendo da un film o da una serie, richiedere all'API quali sono gli attori che fanno parte del cast aggiungendo alla nostra scheda Film / Serie SOLO i primi 5 restituiti
+dall’API con Nome e Cognome.
+
+![Screenshot](./src/assets/Screenshot_2.png);

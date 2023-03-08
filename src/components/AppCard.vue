@@ -33,7 +33,7 @@ export default {
     },
 
     castList() {
-      return this.cast.join(",");
+      return this.cast.join();
     },
   },
   methods: {
@@ -137,7 +137,7 @@ export default {
           <!-- CAST -->
           <div class="my-2">
             <span class="fw-semibold d-block">CAST: </span>
-            <p class="text-white">{{ castList }}</p>
+            <p class="fw-light">{{ castList }}</p>
           </div>
         </div>
       </div>
@@ -168,6 +168,7 @@ li {
         position: absolute;
         width: 100%;
         height: 100%;
+        overflow-y: auto;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden; /* Safari */
 
