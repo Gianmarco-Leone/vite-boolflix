@@ -67,7 +67,23 @@ export default {
             vote: serie.vote_average,
             pic: serie.poster_path,
             overview: serie.overview,
+            id: serie.id,
+            cast: [],
           };
+        });
+
+        series.forEach((serie) => {
+          axios
+            .get(
+              `https://api.themoviedb.org/3/tv/${serie.id}/credits?api_key=9e6d26513f128e25f1d7dea31384230a`
+            )
+            .then((element) => {
+              for (let i = 0; i < 5; i++) {
+                if (element.data.cast.length) {
+                  serie.cast.push(element.data.cast[i].name);
+                }
+              }
+            });
         });
         store.series = series;
       });

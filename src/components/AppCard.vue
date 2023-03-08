@@ -31,10 +31,6 @@ export default {
       }
       return this.stars;
     },
-
-    castList() {
-      return this.cast.join();
-    },
   },
   methods: {
     // Funzione per recuperare bandiera a seconda del codice country passato come parametro
@@ -135,9 +131,11 @@ export default {
           </div>
 
           <!-- CAST -->
-          <div class="my-2">
+          <div v-if="cast.length" class="my-2 cast">
             <span class="fw-semibold d-block">CAST: </span>
-            <p class="fw-light">{{ castList }}</p>
+            <ul class="fw-light ps-0">
+              <li v-for="actor in cast">{{ actor }}</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -207,6 +205,12 @@ li {
           max-height: 8rem;
           overflow-y: auto;
           text-align: center;
+        }
+
+        .cast {
+          li {
+            width: 80%;
+          }
         }
       }
     }

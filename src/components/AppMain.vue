@@ -50,6 +50,7 @@ export default {
           :vote="serie.vote"
           :pic="serie.pic"
           :overview="serie.overview"
+          :cast="serie.cast"
         />
       </ul>
     </div>
