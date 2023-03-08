@@ -33,6 +33,7 @@ export default {
           :pic="movie.pic"
           :overview="movie.overview"
           :cast="movie.cast"
+          :genres="movie.genres"
         />
       </ul>
     </div>

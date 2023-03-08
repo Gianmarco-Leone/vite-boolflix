@@ -37,10 +37,12 @@ export default {
             overview: film.overview,
             id: film.id,
             cast: [],
+            genres: [],
           };
         });
 
         films.forEach((film) => {
+          // API Cast
           axios
             .get(
               `https://api.themoviedb.org/3/movie/${film.id}/credits?api_key=9e6d26513f128e25f1d7dea31384230a`
@@ -49,6 +51,15 @@ export default {
               for (let i = 0; i < 5; i++) {
                 film.cast.push(element.data.cast[i].name);
               }
+            });
+
+          // API Genres
+          axios
+            .get(
+              `https://api.themoviedb.org/3/movie/${film.id}?api_key=9e6d26513f128e25f1d7dea31384230a`
+            )
+            .then((element) => {
+              film.genres.push(element.data.genres);
             });
         });
         store.movies = films;

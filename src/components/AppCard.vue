@@ -13,6 +13,7 @@ export default {
     pic: String,
     overview: String,
     cast: Array,
+    genres: Array,
   },
   computed: {
     halfNumber() {
@@ -128,6 +129,14 @@ export default {
           <div class="my-2 overview-text">
             <span class="fw-semibold d-block">OVERVIEW: </span>
             <p class="fw-light">{{ overview }}</p>
+          </div>
+
+          <!-- GENRES -->
+          <div class="my-2 genres">
+            <span class="fw-semibold d-block">GENRES: </span>
+            <ul class="fw-light ps-0">
+              <li v-for="genre in genres[0]">{{ genre.name }}</li>
+            </ul>
           </div>
 
           <!-- CAST -->
