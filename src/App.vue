@@ -24,6 +24,7 @@ export default {
   },
   methods: {
     fetchMoviesResult(url) {
+      store.movies = [];
       axios.get(url).then((response) => {
         // Utilizzo map per salvare solo informazioni che mi servono
         const films = response.data.results.map((film) => {
@@ -41,6 +42,7 @@ export default {
     },
 
     fetchSeriesResult(url) {
+      store.series = [];
       axios.get(url).then((response) => {
         // Utilizzo map per salvare solo informazioni che mi servono
         const series = response.data.results.map((serie) => {

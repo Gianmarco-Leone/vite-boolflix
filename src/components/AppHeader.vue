@@ -19,9 +19,7 @@ export default {
     <nav class="navbar bg-dark">
       <div class="container-fluid">
         <!-- LOGO  -->
-        <a class="navbar-brand text-danger fw-semibold fs-1" href="#">
-          BOOLFLIX
-        </a>
+        <a class="navbar-brand fw-semibold fs-1" href="#"> BOOLFLIX </a>
 
         <!-- CAMPO RICERCA -->
         <form @submit.prevent="search" class="d-flex" role="search">
@@ -50,6 +48,10 @@ header {
 
   nav {
     height: 100%;
+
+    a {
+      color: $primary-color;
+    }
 
     form {
       input {

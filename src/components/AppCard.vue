@@ -72,7 +72,7 @@ export default {
 <template>
   <li class="ms-0">
     <!-- CARD -->
-    <div class="flip-box">
+    <div class="flip-box my-fade-from-bottom">
       <!-- CONTENUTO CARD -->
       <div class="flip-box-inner">
         <!-- PARTE FRONTALE CARD -->
