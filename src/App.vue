@@ -35,7 +35,26 @@ export default {
             vote: film.vote_average,
             pic: film.poster_path,
             overview: film.overview,
+            id: film.id,
+            cast: [],
           };
+        });
+
+        films.forEach((film) => {
+          let filmCast = [];
+          // console.log(film.id);
+          axios
+            .get(
+              `https://api.themoviedb.org/3/movie/${film.id}/credits?api_key=9e6d26513f128e25f1d7dea31384230a`
+            )
+            .then((element) => {
+              // film.cast = element.data.cast;
+              // console.log(element.data.cast);
+              for (let i = 0; i < 5; i++) {
+                film.cast.push(element.data.cast[i].name);
+              }
+              console.log(film.cast);
+            });
         });
         store.movies = films;
       });

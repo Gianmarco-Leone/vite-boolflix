@@ -32,6 +32,7 @@ export default {
           :vote="movie.vote"
           :pic="movie.pic"
           :overview="movie.overview"
+          :cast="movie.cast"
         />
       </ul>
     </div>

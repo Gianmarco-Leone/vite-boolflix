@@ -12,11 +12,13 @@ export default {
     vote: Number,
     pic: String,
     overview: String,
+    cast: Array,
   },
   computed: {
     halfNumber() {
       return Math.ceil(this.vote / 2);
     },
+
     getStars() {
       // Aggiungo stelle piene
       for (let i = this.halfNumber; i >= 1; i--) {
@@ -28,6 +30,10 @@ export default {
         this.stars.push("fa-regular fa-star");
       }
       return this.stars;
+    },
+
+    castList() {
+      return this.cast.join(",");
     },
   },
   methods: {
@@ -126,6 +132,12 @@ export default {
           <div class="my-2 overview-text">
             <span class="fw-semibold d-block">OVERVIEW: </span>
             <p class="fw-light">{{ overview }}</p>
+          </div>
+
+          <!-- CAST -->
+          <div class="my-2">
+            <span class="fw-semibold d-block">CAST: </span>
+            <p class="text-white">{{ castList }}</p>
           </div>
         </div>
       </div>
