@@ -134,8 +134,8 @@ export default {
           <!-- GENRES -->
           <div class="my-2 genres">
             <span class="fw-semibold d-block">GENRES: </span>
-            <ul class="fw-light ps-0">
-              <li v-for="genre in genres[0]">{{ genre.name }}</li>
+            <ul v-for="genre in genres" class="fw-light ps-0">
+              <li v-for="genreFilm in genre">{{ genreFilm.name }}</li>
             </ul>
           </div>
 
